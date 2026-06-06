@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-list-check"></i>
+            <h2>TaskFlow</h2>
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li class="nav-item active" data-page="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </li>
+
+                <li class="nav-item" data-page="all">
+                    <i class="fa-solid fa-list"></i>
+                    All Tasks
+                </li>
+
+                <li class="nav-item" data-page="completed">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Completed
+                </li>
+
+                <li class="nav-item" data-page="pending">
+                    <i class="fa-solid fa-clock"></i>
+                    Pending
+                </li>
+
+                <li class="nav-item" data-page="settings">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Stay focused. Stay productive.</p>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+                <h1>Task Dashboard</h1>
+                <p>Manage your work efficiently</p>
+            </div>
+
+            <div class="top-actions">
+
+                <button id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Stats -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Tasks</h3>
+                <span id="totalTasks">0</span>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <span id="completedTasks">0</span>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pending</h3>
+                <span id="pendingTasks">0</span>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completion</h3>
+                <span id="completionRate">0%</span>
+            </div>
+
+        </section>
+
+        <!-- Progress -->
+        <section class="progress-card">
+
+            <div class="progress-header">
+                <h3>Overall Progress</h3>
+                <span id="progressText">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+        </section>
+
+        <!-- Add Task -->
+        <section class="add-task-card">
+
+            <h2>Create Task</h2>
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Task title"
+                >
+
+                <input
+                    type="date"
+                    id="taskDate"
+                >
+
+                <select id="taskCategory">
+
+                    <option value="Personal">
+                        Personal
+                    </option>
+
+                    <option value="Work">
+                        Work
+                    </option>
+
+                    <option value="Study">
+                        Study
+                    </option>
+
+                </select>
+
+                <select id="taskPriority">
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                </select>
+
+            </div>
+
+            <textarea
+                id="taskDescription"
+                placeholder="Task description..."
+            ></textarea>
+
+            <button id="addTaskBtn">
+                Add Task
+            </button>
+
+        </section>
+
+        <!-- Search + Filters -->
+        <section class="filter-card">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks..."
+            >
+
+            <select id="statusFilter">
+
+                <option value="all">
+                    All
+                </option>
+
+                <option value="completed">
+                    Completed
+                </option>
+
+                <option value="pending">
+                    Pending
+                </option>
+
+            </select>
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Personal">
+                    Personal
+                </option>
+
+                <option value="Work">
+                    Work
+                </option>
+
+                <option value="Study">
+                    Study
+                </option>
+
+            </select>
+
+        </section>
+
+        <!-- Task Section -->
+        <section class="task-container">
+
+            <div class="task-header">
+
+                <h2>Tasks</h2>
+
+                <span id="taskCounter">
+                    0 Tasks
+                </span>
+
+            </div>
+
+            <div class="task-scroll">
+
+                <div id="taskList">
+
+                    <div class="empty-state">
+
+                        <i class="fa-solid fa-clipboard-list"></i>
+
+                        <h3>No Tasks Yet</h3>
+
+                        <p>
+                            Create your first task above.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
